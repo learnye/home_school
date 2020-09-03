@@ -1,0 +1,18 @@
+<view class="container">
+	<!-- 头部标题 -->
+	<view class="container-row container-header">
+		<text></text>
+		<view class="container-row container-right">
+			<text>点击查看详情</text>
+		</view>
+	</view>
+	<!-- 分类列表 -->
+	<scroll-view class="container-column container-list" scroll-y='true' enable-flex='true'>
+		<block wx:for='{{dataList}}' wx:key="key">
+			<view class="item container-row" catchtap="showDetail" data-index="{{index}}" >
+				<text class="name text-lines1">{{'科目：'+item.subject}}</text>
+				<text class="name text-lines1">{{'分数：'+item.score+'分'}}</text>
+			</view>
+		</block>
+	</scroll-view>
+</view>

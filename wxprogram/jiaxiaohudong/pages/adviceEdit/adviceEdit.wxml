@@ -1,0 +1,27 @@
+<view class="container">
+
+	<view class="container-column container-content">
+		<!-- 标题 -->
+		<view class="container-row container-title">
+			<text class="title">意见反馈</text>
+		</view>
+
+		<!-- 商品名称 -->
+		<view class="container-row container-form-item">
+			<text class="title">标题</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="name" value="{{editData.name}}"></input>
+			<text class="text-hui left-inputcount">{{editData['name']?editData['name'].length:0}}/10</text>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">内容</text>
+			<input class="input" maxlength="50" bindinput="onInput" data-field="content" value="{{editData.content}}" placeholder="请输入反馈详情"></input>
+			<text class="text-hui left-inputcount">{{editData['content']?editData['content'].length:0}}/50</text>
+		</view>
+	</view>
+
+	<!-- 操作按钮 -->
+	<view class="container-row container-btn-bottom">
+		<text class="btn btn-done" catchtap="save" data-finish="yes">{{edit?'完成修改':'完成添加'}}</text>
+	</view>
+</view>

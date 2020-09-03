@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.image-dingcan {
+  width: 100%;
+  height: 100%;
+}
+
+.countDown {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 14px;
+  position: fixed;
+  right: 10px;
+  top: 20px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: rgb(87, 102, 235);
+  text-align: center;
+  box-shadow: 0 0 8px #c1c1c1;
+}

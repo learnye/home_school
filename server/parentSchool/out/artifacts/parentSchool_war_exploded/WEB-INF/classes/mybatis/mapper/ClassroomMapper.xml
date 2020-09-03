@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.redrain.mapper.ClassroomMapper">
+
+    <select id="getList" parameterType="classroom" resultType="classroom">
+        select * from classroom
+        <where>
+            <if test="state>0">
+                state=#{state}
+            </if>
+            <if test="id !=null and id !=''">
+                and id = #{id}
+            </if>
+            <if test="name !=null and name !=''">
+                and name like '%${name}%'
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" parameterType="classroom">
+        insert into classroom
+        (id,name)
+        values
+        (null,#{name})
+    </insert>
+
+    <update id="delete" parameterType="classroom">
+        update classroom set state=2 where id=#{id}
+    </update>
+
+    <update id="update" parameterType="classroom">
+        update classroom
+        set
+        name=#{name}
+        where id=#{id}
+    </update>
+
+    <update id="updateState" parameterType="classroom">
+        update classroom
+        set state= #{state}
+        where id=#{id}
+    </update>
+
+</mapper>
+

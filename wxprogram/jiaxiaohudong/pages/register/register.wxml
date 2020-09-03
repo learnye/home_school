@@ -1,0 +1,7 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+	<view class="container-column container-item">
+		<text class="btn-item"  bindtap="register1">家长注册</text>
+    <text class="btn-item"  bindtap="register2">教师注册</text>
+	</view>
+</view>

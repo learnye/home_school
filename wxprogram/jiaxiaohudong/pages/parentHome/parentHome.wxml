@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="container-column container-item">
+		<text class="btn-item" bindtap="homeworkListPage">孩子作业</text>
+    <text class="btn-item" bindtap="answerListPage">作业答案</text>
+		<text class="btn-item" bindtap="scoreListPage">孩子成绩</text>
+		<text class="btn-item" bindtap="teacherListPage">同班老师</text>
+    <text class="btn-item" bindtap="classnoticeListPage">班级通知</text>
+		<text class="btn-item" bindtap="noticeListPage">学校通知</text>
+		<text class="btn-item" bindtap="adviceAddPage">意见反馈</text>
+		<text class="btn-item" bindtap="adviceListPage">反馈历史</text>
+			<text class="btn-item bg-gray"  bindtap="logout">退出登录</text>
+	</view>
+</view>

@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container">
+  <image class='image-dingcan' src='../../images/splash1.jpg' mode='aspectFill'></image>
+	<text class='countDown'>{{countDown}}</text>
+</view>

@@ -1,0 +1,46 @@
+<view class="container">
+
+	<view class="container-column container-content">
+		<!-- 标题 -->
+		<view class="container-row container-title">
+			<text class="title">{{(edit?'修改':'新增')+'作业'}}</text>
+		</view>
+
+		<!-- 作业名称 -->
+		<view class="container-row container-form-item">
+			<text class="title">标题</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="name" value="{{editData.name}}"></input>
+			<text class="text-hui left-inputcount">{{editData['name']?editData['name'].length:0}}/10</text>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">内容</text>
+			<input class="input" maxlength="50" bindinput="onInput" data-field="content" value="{{editData.content}}" placeholder="请输入作业详情"></input>
+			<text class="text-hui left-inputcount">{{editData['content']?editData['content'].length:0}}/50</text>
+		</view>
+
+	
+
+		<view class="container-column container-form-item container-form-imgs">
+			<text class="title">作业图片</text>
+			<view class="container-row container-imgs mt-10">
+				<block wx:for='{{imageList}}' wx:key="key">
+					<view wx:if='{{item.type=="local"&&imageList.length==1}}' class="item" catchtap="chooseImage">
+						<image class="takePhoto" src="{{item.path}}"></image>
+					</view>
+					<view wx:if='{{item.type=="remote"}}' class="item">
+						<image catchtap="showImgs" data-index="{{index}}" class="photo" src="{{baseImgUrl+item.path}}" mode="aspectFill"></image>
+						<image class="delete" catchtap="deleteImage" data-index="{{index}}" src="../../images/icon_delete1.png"></image>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+
+	<!-- 操作按钮 -->
+	<view class="container-row container-btn-bottom">
+		<text class="btn btn-done" catchtap="save" data-finish="yes">{{edit?'完成修改':'完成添加'}}</text>
+		<text wx:if='{{!edit}}' class="btn" catchtap="save" data-finish="no">继续添加</text>
+	</view>
+
+</view>

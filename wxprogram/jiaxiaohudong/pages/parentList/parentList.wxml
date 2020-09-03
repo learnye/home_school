@@ -1,0 +1,22 @@
+<view class="container">
+	<!-- 头部标题 -->
+	<view class="container-row container-header">
+		<text></text>
+		<view class="container-row container-right">
+			<text>点击开聊</text>
+		</view>
+	</view>
+	<!-- 分类列表 -->
+	<scroll-view class="container-column container-list" scroll-y='true' enable-flex='true'>
+		<block wx:for='{{dataList}}' wx:key="key">
+			<view class="item container-row" catchtap="showChatPage" data-index="{{index}}">
+				<image class="coverImg" src="{{baseImgUrl+item.avatarUrl}}"></image>
+				<text class="name text-lines1">{{item.name+'(孩子：'+item.studentName+')'}}</text>
+				<view class="right container-row">
+					<!-- <image class="icon-edit" src="../../images/icon_bj.png" catchtap="showEditPage" data-type="edit" data-index="{{index}}"></image> -->
+					<!-- <text>新增评价</text> -->
+				</view>
+			</view>
+		</block>
+	</scroll-view>
+</view>

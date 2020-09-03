@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+	<image class='icon_bg' src='../../images/icon_bg1.png'></image>
+	<view class='container-login'>
+		<view class='container-login'>
+			<view class='inputView'>
+				<image src='../../images/username.png'></image>
+				<input type='text' placeholder='用户名' maxlength='30' bindinput='onInput' data-typename="username" value="{{userInfo.username}}"></input>
+			</view>
+
+			<view class='inputView'>
+				<image src='../../images/pwd.png'></image>
+				<input type='password' placeholder='密码' maxlength='30' bindinput='onInput' data-typename="password" value="{{userInfo.password}}"></input>
+			</view>
+			<view class='container-type'>
+				<radio-group bindchange="onRadioChange">
+					<radio checked="{{isNormalUser}}" value='1'>
+						<text>我是家长</text>
+					</radio>
+					<radio checked="{{!isNormalUser}}" value='2'>
+						<text>我是教师</text>
+					</radio>
+				</radio-group>
+			</view>
+			<text class='btn-login' bindtap="login">登陆</text>
+      <text class='btn-login' bindtap="showRegistView">注册</text>
+		</view>
+	</view>
+
+</view>

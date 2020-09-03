@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.redrain.mapper.classNoticeMapper">
+
+    <select id="getList" parameterType="classnotice" resultType="classnotice">
+        select b.*,t.name as teacherName,c.name as classroomName from classnotice b
+        left join classroom c on c.id =b.classroomid
+        left join user_teacher t on t.id =b.teacherid
+        <where>
+            <if test="state>0">
+                b.state=#{state}
+            </if>
+            <if test="id !=null and id !=''">
+                and b.id = #{id}
+            </if>
+            <if test="name !=null and name !=''">
+                and b.name like '%${name}%'
+            </if>
+            <if test="content !=null and content !=''">
+                and b.content like '%${content}%'
+            </if>
+            <if test="coverImg !=null and coverImg !=''">
+                and b.coverImg = #{coverImg}
+            </if>
+            <if test="classroomid !=null and classroomid !=''">
+                and b.classroomid = #{classroomid}
+            </if>
+            <if test="teacherid !=null and teacherid !=''">
+                and b.teacherid = #{teacherid}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" parameterType="classnotice">
+        insert into classnotice
+        (id,name,content,coverImg,classroomid,teacherid)
+        values
+        (null,#{name},#{content},#{coverImg},#{classroomid},#{teacherid})
+    </insert>
+
+    <update id="delete" parameterType="classnotice">
+        update classnotice set state=2 where id=#{id}
+    </update>
+
+    <update id="update" parameterType="classnotice">
+        update classnotice
+        set
+        name=#{name},
+        content=#{content},
+        coverImg=#{coverImg},
+        classroomid=#{classroomid},
+        teacherid=#{teacherid}
+        where id=#{id}
+    </update>
+
+    <update id="updateState" parameterType="classnotice">
+        update classnotice
+        set state= #{state}
+        where id=#{id}
+    </update>
+
+</mapper>
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.redrain.mapper.ChatMapper">
+
+    <select id="getList" parameterType="chat" resultType="chat">
+        select * from chat
+        <where>
+            <if test="state>0">
+                state=#{state}
+            </if>
+            <if test="id !=null and id !=''">
+                and id = #{id}
+            </if>
+            <if test="content !=null and content !=''">
+                and content like '%${content}%'
+            </if>
+            <if test="fromName !=null and fromName !=''">
+                and fromName = #{fromName}
+            </if>
+            <if test="toName !=null and toName !=''">
+                and toName = #{toName}
+            </if>
+            <if test="fromAvatarUrl !=null and fromAvatarUrl !=''">
+                and fromAvatarUrl = #{fromAvatarUrl}
+            </if>
+            <if test="toAvatarUrl !=null and toAvatarUrl !=''">
+                and toAvatarUrl = #{toAvatarUrl}
+            </if>
+            <if test="tuid !=null and tuid !='' and parentid !=null and parentid !=''">
+                and tuid = #{tuid} and parentid = #{parentid}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" parameterType="chat">
+        insert into chat
+        (id,content,fromName,toName,fromAvatarUrl,toAvatarUrl,tuid,parentid,type)
+        values
+        (null,#{content},#{fromName},#{toName},#{fromAvatarUrl},#{toAvatarUrl},#{tuid},#{parentid},#{type})
+    </insert>
+
+    <update id="delete" parameterType="chat">
+        update chat set state=2 where id=#{id}
+    </update>
+
+    <update id="update" parameterType="chat">
+        update chat
+        set
+        content=#{content},
+        fromName=#{fromName},
+        toName=#{toName},
+        fromAvatarUrl=#{fromAvatarUrl},
+        toAvatarUrl=#{toAvatarUrl},
+        tuid=#{tuid},
+        parentid=#{parentid}
+        where id=#{id}
+    </update>
+
+    <update id="updateState" parameterType="chat">
+        update chat
+        set state= #{state}
+        where id=#{id}
+    </update>
+
+</mapper>
+

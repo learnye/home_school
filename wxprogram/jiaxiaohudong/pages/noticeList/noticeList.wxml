@@ -1,0 +1,12 @@
+<view class="container">
+	<!-- 列表 -->
+	<scroll-view class="container-column container-list" scroll-y='true'  style="height:600rpx" scroll-into-view='{{scrollintoView}}'>
+		<block wx:for='{{dataList}}' wx:key="key">
+			<view class="item container-column" style="height:300px">
+				<text class="name">{{item.name}}</text>
+				<text class="content text-hui">{{item.content}}</text>
+				<image class="coverImg" src="{{baseImgUrl+item.coverImg}}"></image>
+			</view>
+		</block>
+	</scroll-view>
+</view>

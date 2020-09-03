@@ -1,0 +1,12 @@
+<view class="container">
+	<!-- 列表 -->
+	<scroll-view class="container-column container-list" scroll-y='true' enable-flex='true'>
+		<block wx:for='{{dataList}}' wx:key="key">
+			<view class="item container-column">
+				<text class="name">标题：{{item.name}}</text>
+				<text class="name">内容：{{item.content}}</text>
+				<text wx:if='{{item.reply}}' class="name text-hui">回复：{{item.reply}}</text>
+			</view>
+		</block>
+	</scroll-view>
+</view>

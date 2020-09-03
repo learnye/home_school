@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.redrain.mapper.UserTeacherMapper">
+
+    <select id="getList" parameterType="userTeacher" resultType="userTeacher">
+        select t.*,c.name as classroomName from user_teacher t
+        left join classroom c on c.id=t.classroomid
+        <where>
+            <if test="state>0">
+                t.state=#{state}
+            </if>
+            <if test="id !=null and id !=''">
+                and t.id = #{id}
+            </if>
+            <if test="username !=null and username !=''">
+                and t.username = #{username}
+            </if>
+            <if test="password !=null and password !=''">
+                and t.password = #{password}
+            </if>
+            <if test="name !=null and name !=''">
+                and t.name like '%${name}%'
+            </if>
+            <if test="gender !=null and gender !=''">
+                and t.gender = #{gender}
+            </if>
+            <if test="age !=null and age !=''">
+                and t.age = #{age}
+            </if>
+            <if test="avatarUrl !=null and avatarUrl !=''">
+                and t.avatarUrl = #{avatarUrl}
+            </if>
+            <if test="phone !=null and phone !=''">
+                and t.phone = #{phone}
+            </if>
+            <if test="classroomid !=null and classroomid !=''">
+                and t.classroomid = #{classroomid}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" parameterType="userTeacher">
+        insert into user_teacher
+        (id,username,password,name,gender,age,avatarUrl,phone,classroomid)
+        values
+        (null,#{username},#{password},#{name},#{gender},#{age},#{avatarUrl},#{phone},#{classroomid})
+    </insert>
+
+    <update id="delete" parameterType="userTeacher">
+        update user_teacher set state=2 where id=#{id}
+    </update>
+
+    <update id="update" parameterType="userTeacher">
+        update user_teacher
+        set
+        username=#{username},
+        password=#{password},
+        name=#{name},
+        gender=#{gender},
+        age=#{age},
+        avatarUrl=#{avatarUrl},
+        phone=#{phone},
+        classroomid=#{classroomid}
+        where id=#{id}
+    </update>
+
+    <update id="updateState" parameterType="userTeacher">
+        update user_teacher
+        set state= #{state}
+        where id=#{id}
+    </update>
+
+</mapper>
+

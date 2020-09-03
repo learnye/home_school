@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.redrain.mapper.AdviceMapper">
+
+    <select id="getList" parameterType="advice" resultType="advice">
+        select a.*,p.name as patentName from advice a
+        left join user_parent p on p.id=a.parentid
+        <where>
+            <if test="state>0">
+                a.state=#{state}
+            </if>
+            <if test="id !=null and id !=''">
+                and  a.id = #{id}
+            </if>
+            <if test="name !=null and name !=''">
+                and  a.name like '%${name}%'
+            </if>
+            <if test="content !=null and content !=''">
+                and  a.content like '%${content}%'
+            </if>
+            <if test="reply !=null and reply !=''">
+                and  a.reply = #{reply}
+            </if>
+
+            <if test="parentid !=null and parentid !=''">
+                and  a.parentid = #{parentid}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" parameterType="advice">
+        insert into advice
+        (id,name,content,reply,parentid)
+        values
+        (null,#{name},#{content},#{reply},#{parentid})
+    </insert>
+
+    <update id="delete" parameterType="advice">
+        update advice set state=2 where id=#{id}
+    </update>
+
+    <update id="update" parameterType="advice">
+        update advice
+        set
+        name=#{name},
+        content=#{content},
+        reply=#{reply}
+        where id=#{id}
+    </update>
+
+    <update id="updateState" parameterType="advice">
+        update advice
+        set state= #{state}
+        where id=#{id}
+    </update>
+
+</mapper>
+

@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="container-column container-item">
+		<text class="btn-item"  bindtap="homeworkManagePage">作业管理</text>
+    <text class="btn-item"  bindtap="answerManagePage">作业答案</text>
+    <text class="btn-item"  bindtap="classnoticeManagePage">公告管理</text>
+		<text class="btn-item"  bindtap="studentListPage">学生列表</text>
+		<text class="btn-item"  bindtap="parentListPage">同班家长</text>
+		<text class="btn-item"  bindtap="noticeListPage">学校通知</text>
+		<text class="btn-item bg-gray"  bindtap="logout">退出登录</text>
+	</view>
+</view>

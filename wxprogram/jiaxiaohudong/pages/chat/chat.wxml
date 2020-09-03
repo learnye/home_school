@@ -1,0 +1,47 @@
+<view class="container">
+	<!-- 列表 -->
+	<scroll-view class="container-column container-list" scroll-y='true' enable-flex='true' scroll-into-view='{{scrollintoView}}'>
+		<block wx:for='{{dataList}}' wx:key="key">
+			<block wx:if='{{isParent}}' >
+				<view class="item container-row item-my" wx:if='{{item.type==1}}' id="item{{index+1}}">
+					<view class="container-column right">
+						<text class="name">{{item.fromName}}</text>
+						<text class="content text-hui">{{item.content}}</text>
+					</view>
+					<image class="coverImg" src="{{baseImgUrl+item.fromAvatarUrl}}"></image>
+				</view>
+
+				<view class="item container-row" wx:else id="item{{index+1}}">
+					<image class="coverImg" src="{{baseImgUrl+item.fromAvatarUrl}}"></image>
+					<view class="container-column right">
+						<text class="name">{{item.fromName}}</text>
+						<text class="content text-hui">{{item.content}}</text>
+					</view>
+				</view>
+			</block>
+
+			<block wx:else>
+				<view class="item container-row" wx:if='{{item.type==1}}' id="item{{index+1}}">
+					<image class="coverImg" src="{{baseImgUrl+item.fromAvatarUrl}}"></image>
+					<view class="container-column right">
+						<text class="name">{{item.fromName}}</text>
+						<text class="content text-hui">{{item.content}}</text>
+					</view>
+				</view>
+
+				<view class="item container-row item-my" wx:else id="item{{index+1}}">
+					<view class="container-column right">
+						<text class="name">{{item.fromName}}</text>
+						<text class="content text-hui">{{item.content}}</text>
+					</view>
+					<image class="coverImg" src="{{baseImgUrl+item.fromAvatarUrl}}"></image>
+				</view>
+			</block>
+		</block>
+	</scroll-view>
+
+	<view class="container-row container-send">
+		<input class="input-area" bindinput="onInput" data-field="content" value="{{editData.content}}" placeholder="请输入你想对她（他）说的话"></input>
+		<text class="btn-send" catchtap="sendMsg">发送</text>
+	</view>
+</view>

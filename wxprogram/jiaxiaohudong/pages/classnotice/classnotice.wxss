@@ -1,0 +1,2 @@
+/* pages/classnotice/classnotice.wxss */
+@import "../../utils/wxss/formEdit.wxss"

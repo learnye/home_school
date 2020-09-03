@@ -1,0 +1,2 @@
+/* pages/answerDetail/answerDetail.wxss */
+@import "../../utils/wxss/formEdit.wxss"

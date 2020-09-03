@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/splash/splash",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/pregister/pregister",
+    "pages/tregister/tregister",
+    "pages/parentHome/parentHome",
+    "pages/homeworkManage/homeworkManage",
+    "pages/studentList/studentList",
+    "pages/scoreManage/scoreManage",
+    "pages/scoreEdit/scoreEdit",
+    "pages/parentList/parentList",
+    "pages/homeworkEdit/homeworkEdit",
+    "pages/teacherHome/teacherHome",
+    "pages/homeworkList/homeworkList",
+    "pages/homeworkDetail/homeworkDetail",
+    "pages/scoreList/scoreList",
+    "pages/scoreDetail/scoreDetail",
+    "pages/adviceEdit/adviceEdit",
+    "pages/adviceList/adviceList",
+    "pages/classnotice/classnotice",
+    "pages/classnoticeList/classnoticeList",
+    "pages/classnoticeManage/classnoticeManage",
+    "pages/answerEdit/answerEdit",
+    "pages/answerManage/answerManage",
+    "pages/answerList/answerList",
+    "pages/answerDetail/answerDetail"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "家校互动平台",
+    "navigationBarBackgroundColor": "#27292D",
+    "backgroundColor": "#27292D"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 15000,
+    "downloadFile": 10000
+  },
+  "debuge": true,
+  "sitemapLocation": "sitemap.json"
+}

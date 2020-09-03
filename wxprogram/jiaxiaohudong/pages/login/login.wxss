@@ -1,0 +1,78 @@
+page {
+  background: #fff;
+}
+
+.icon_bg {
+  width: 100%;
+  z-index: -100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 400px;
+}
+
+.container-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.inputView {
+  width: 80%;
+  height: 40px;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 12px;
+  border: 1px solid #c1c1c1;
+  border-radius: 8px;
+}
+
+.inputView image:nth-child(1) {
+  width: 12px;
+  height: 12px;
+}
+
+.inputView input {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.btn-login {
+  padding: 10px 80px;
+  color: #fff;
+  justify-self: center;
+  background: linear-gradient(to bottom, rgb(245, 80, 50), rgb(252, 255, 105));
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.container-type {
+  width: 80%;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.container-type radio {
+  margin-left: 15px;
+}
+
+.regist {
+  margin-top: 15px;
+  color: #f40;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right;
+  width: 80%;
+  line-height: 30px;
+  display: inline-block;
+}

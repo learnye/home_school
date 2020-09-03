@@ -1,0 +1,39 @@
+<view class="container">
+
+	<view class="container-column container-content">
+		<!-- 标题 -->
+		<view class="container-row container-title">
+			<text class="title">{{(edit?'修改':'新增')+'学生分数'}}</text>
+		</view>
+
+		<!-- 名称 -->
+		<view class="container-row container-form-item">
+			<text class="title">标题</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="name" value="{{editData.name}}" placeholder="请输入标题"></input>
+			<text class="text-hui left-inputcount">{{editData['name']?editData['name'].length:0}}/10</text>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">内容</text>
+			<input class="input" maxlength="50" bindinput="onInput" data-field="content" value="{{editData.content}}" placeholder="请输入平时表现或教师评语"></input>
+			<text class="text-hui left-inputcount">{{editData['content']?editData['content'].length:0}}/50</text>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">科目</text>
+			<input class="input" maxlength="5" auto-focus="true" bindinput="onInput" data-field="subject" value="{{editData.subject}}" placeholder="请输入科目"></input>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">分数</text>
+			<input class="input" maxlength="5" auto-focus="true" type="digit" bindinput="onInput" data-field="score" value="{{editData.score}}" placeholder="请输入分数"></input>
+		</view>
+	</view>
+
+	<!-- 操作按钮 -->
+	<view class="container-row container-btn-bottom">
+		<text class="btn btn-done" catchtap="save" data-finish="yes">{{edit?'完成修改':'完成添加'}}</text>
+		<text wx:if='{{!edit}}' class="btn" catchtap="save" data-finish="no">继续添加</text>
+	</view>
+
+</view>

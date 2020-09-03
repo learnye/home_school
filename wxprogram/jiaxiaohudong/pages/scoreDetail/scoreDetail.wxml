@@ -1,0 +1,31 @@
+<view class="container">
+
+	<view class="container-column container-content">
+		<!-- 标题 -->
+		<view class="container-row container-title">
+			<text class="title">学生分数详情</text>
+		</view>
+
+		<!-- 名称 -->
+		<view class="container-row container-form-item">
+			<text class="title">标题</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="name" value="{{editData.name}}" disabled="true" placeholder="请输入标题"></input>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">内容</text>
+			<input class="input" maxlength="50" bindinput="onInput" data-field="content" value="{{editData.content}}" disabled="true" placeholder="请输入平时表现或教师评语"></input>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">科目</text>
+			<input class="input" maxlength="5" auto-focus="true" bindinput="onInput" data-field="subject" value="{{editData.subject}}" disabled="true" placeholder="请输入科目"></input>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">分数</text>
+			<input class="input" maxlength="5" auto-focus="true" type="digit" bindinput="onInput" data-field="score" disabled="true" value="{{editData.score}}" placeholder="请输入分数"></input>
+		</view>
+	</view>
+
+</view>

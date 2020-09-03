@@ -1,0 +1,2 @@
+/* pages/pregister/pregister.wxss */
+@import "../../utils/wxss/formEdit.wxss"

@@ -1,0 +1,38 @@
+<!--pages/answerDetail/answerDetail.wxml-->
+<view class="container">
+
+	<view class="container-column container-content">
+		<!-- 作业 -->
+		<view class="container-row container-title">
+			<text class="title">作业答案详情</text>
+		</view>
+
+		<!-- 标题 -->
+		<view class="container-row container-form-item">
+			<text class="title">标题</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="name" value="{{editData.name}}" disabled="true"></input>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">内容</text>
+			<input class="input" maxlength="50" bindinput="onInput" data-field="content" value="{{editData.content}}" disabled="true"></input>
+		</view>
+
+
+
+		<view class="container-column container-form-item container-form-imgs">
+			<text class="title">作业图片</text>
+			<view class="container-row container-imgs mt-10">
+				<block wx:for='{{imageList}}' wx:key="key">
+					<view wx:if='{{item.type=="local"&&imageList.length==1}}' class="item" catchtap="chooseImage">
+						<image class="takePhoto" src="{{item.path}}"></image>
+					</view>
+					<view wx:if='{{item.type=="remote"}}' class="item">
+						<image catchtap="showImgs" data-index="{{index}}" class="photo" src="{{baseImgUrl+item.path}}" mode="aspectFill"></image>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+
+</view>

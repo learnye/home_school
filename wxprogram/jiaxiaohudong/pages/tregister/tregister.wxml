@@ -1,0 +1,72 @@
+<!--pages/tregister/tregister.wxml-->
+<view class="container">
+
+	<view class="container-column container-content">
+		<!-- 登录名 -->
+		<view class="container-row container-form-item">
+			<text class="title">登录账号</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="username" value="{{editData.username}}" placeholder="请输入登录账号">></input>
+			<text class="text-hui left-inputcount">{{editData['username']?editData['username'].length:0}}/10</text>
+		</view>
+
+		<view class="container-row container-form-item">
+			<text class="title">密码</text>
+			<input class="input" maxlength="50" bindinput="onInput" data-field="password" value="{{editData.password}}" placeholder="请输入密码"></input>
+			<text class="text-hui left-inputcount">{{editData['password']?editData['password'].length:0}}/50</text>
+		</view>
+
+    <view class="container-row container-form-item">
+			<text class="title">用户昵称</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="name" value="{{editData.name}}" placeholder="请输入用户昵称">></input>
+			<text class="text-hui left-inputcount">{{editData['name']?editData['name'].length:0}}/10</text>
+		</view>
+
+    	<view class="container-row container-form-item">
+			<text class="title">性别</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="gender" value="{{editData.gender}}" placeholder="填入性别：1 男 2 女">></input>
+			<text class="text-hui left-inputcount">{{editData['gender']?editData['gender'].length:0}}/10</text>
+		</view>
+
+
+      <view class="container-row container-form-item">
+			<text class="title">用户年龄</text>
+			<input class="input" maxlength="10" auto-focus="true" bindinput="onInput" data-field="age" value="{{editData.age}}" placeholder="请输入年龄">></input>
+			<text class="text-hui left-inputcount">{{editData['age']?editData['age'].length:0}}/10</text>
+		</view>
+
+		<view class="container-column container-form-item container-form-imgs">
+			<text class="title">上传头像</text>
+			<view class="container-row container-imgs mt-10">
+				<block wx:for='{{imageList}}' wx:key="key">
+					<view wx:if='{{item.type=="local"&&imageList.length==1}}' class="item" catchtap="chooseImage">
+						<image class="takePhoto" src="{{item.path}}"></image>
+					</view>
+					<view wx:if='{{item.type=="remote"}}' class="item">
+						<image catchtap="showImgs" data-index="{{index}}" class="photo" src="{{baseImgUrl+item.path}}" mode="aspectFill"></image>
+						<image class="delete" catchtap="deleteImage" data-index="{{index}}" src="../../images/icon_delete1.png"></image>
+					</view>
+				</block>
+			</view>
+		</view>
+
+    <view class="container-row container-form-item">
+			<text class="title">电话</text>
+			<input class="input" maxlength="50" bindinput="onInput" data-field="phone" value="{{editData.phone}}" placeholder="请输入电话"></input>
+			<text class="text-hui left-inputcount">{{editData['phone']?editData['phone'].length:0}}/50</text>
+		</view>
+
+
+    <view class="container-row container-form-item">
+			<text class="title">绑定班级</text>
+			<input class="input" maxlength="50" bindinput="onInput" data-field="classroomid" value="{{editData.classroomid}}" placeholder="请输入班级ID"></input>
+			<text class="text-hui left-inputcount">{{editData['classroomid']?editData['classroomid'].length:0}}/50</text>
+		</view>
+
+	</view>
+
+	<!-- 操作按钮 -->
+	<view class="container-row container-btn-bottom">
+		<text class="btn btn-done" catchtap="save" data-finish="yes">开始注册</text>
+    </view>
+
+</view>
